@@ -21,7 +21,7 @@ export default {
         }
     },
     actions: {
-        async login({ commit }, payload) {
+        async login({ dispatch, commit }, payload) {
             try {
                 const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.VUE_APP_FB_KEY}`
                 console.log(payload)
@@ -29,8 +29,11 @@ export default {
                 commit('setToken', data.idToken)
             }
             catch(e) {
+                dispatch('setMessageAction', {
+                    value: error(e.response.data.error.message),
+                    type: 'danger'
+                },{ root: true})
                 
-                console.log(error(e.response.data.error.message))
                 throw new Error()
             }
       
