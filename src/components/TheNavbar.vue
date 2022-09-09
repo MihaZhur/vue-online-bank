@@ -2,8 +2,8 @@
   <nav class="navbar">
     <h3>Online bank</h3>
     <ul class="navbar-menu">
-        <li>
-            <router-link to="/">Заявки</router-link>
+        <li >
+            <router-link to="/" >Заявки</router-link>
         </li>
         <li>
             <router-link to="/help">Помощь</router-link>
