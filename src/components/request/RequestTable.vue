@@ -12,6 +12,9 @@
         Телефон
       </th>
       <th>
+        Cумма
+      </th>
+      <th>
         Статус
       </th>
       <th>
@@ -19,24 +22,40 @@
       </th>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr v-for="r,ind in requests" :key="r.id">
+        <td>{{ ind + 1 }}</td>
+        <td>{{ r.fio }}</td>
+        <td> {{ r.phone }}</td>
+        <td>{{ currency(r.amount) }}</td>
+        <td><app-status-vue :type="r.status"></app-status-vue></td>
+        <td>
+          <router-link custom   :to="{name: 'Request' , params: {id :r.id}}">
+              <button class="btn primary">
+                Открыть
+              </button>
+            </router-link>
+        </td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <script>
+import AppStatusVue from '../ui/AppStatus.vue';
+import { currency } from '../../utils/currentcy'
+
 export default {
   props: {
     requests: {
       type: Array,
     },
   },
+  setup() {
+    return {currency}
+  },
+  components: {
+    AppStatusVue
+  }
 };
 </script>
 
