@@ -58,6 +58,23 @@ export default {
             type: 'danger'
         },{root: true})
       }
+    },
+    async loadingOne({commit, dispatch}, id) {
+      try {
+        const token = store.getters["authModule/token"];
+        const { data } = await axios.get(
+          `/request/${id}.json?auth=${token}`
+        );
+        return data
+  
+      } catch (e) {
+        dispatch('setMessageAction', {
+            value: e.message,
+            type: 'danger'
+        },{root: true})
+      }
     }
+
   },
+
 };

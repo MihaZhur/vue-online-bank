@@ -29,7 +29,7 @@
         <td>{{ currency(r.amount) }}</td>
         <td><app-status-vue :type="r.status"></app-status-vue></td>
         <td>
-          <router-link custom   :to="{name: 'Request' , params: {id :r.id}}">
+          <router-link :to="{name: 'Request' , params: {id :r.id}}">
               <button class="btn primary">
                 Открыть
               </button>
