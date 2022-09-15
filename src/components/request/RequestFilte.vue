@@ -12,7 +12,7 @@
             <option value="pending">Выполняется</option>
         </select>
     </div>
-    <button v-if="isActiveFilter" @click="reset" class="btn warning"> Очистить</button>
+    <button v-if="isActiveFilter" @click="reset" class="btn warning">Очистить</button>
   </div>
 </template>
 

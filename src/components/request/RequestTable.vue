@@ -30,7 +30,7 @@
         <td><app-status-vue :type="r.status"></app-status-vue></td>
         <td>
           <router-link :to="{name: 'Request' , params: {id :r.id}}">
-              <button class="btn primary">
+              <button class="btn ">
                 Открыть
               </button>
             </router-link>
