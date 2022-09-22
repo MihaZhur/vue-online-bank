@@ -10,7 +10,7 @@
         </li>
     
         <li>
-            <a href="#">Сообщения </a>
+            <a href="#" @click.prevent="open">Сообщения </a>
         </li>
         <li>
             <a @click.prevent="logout" href="#" >Выход</a>
@@ -27,11 +27,14 @@ export default {
     setup() {
         const store = useStore()
         const router = useRouter()
+        
         return {
             logout: () => {
                 store.commit('authModule/logout')
                 router.push('/auth')
-            }
+              
+            },
+            open:() => store.dispatch('sitebarOpen')
         }
     }
 }

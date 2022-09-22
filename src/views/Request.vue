@@ -1,6 +1,6 @@
 <template>
     <app-loader-vue v-if="loading" ></app-loader-vue>
-  <app-page-vue :title="`Заявка`" v-else-if="request">
+  <app-page-vue back :title="`Заявка`" v-else-if="request">
     <p><strong>Имя владельца: </strong>{{ request.fio }}</p>
     <p><strong>Телефон: </strong>{{ request.phone }}</p>
     <p><strong>Сумма: </strong>{{ request.amount }}</p>

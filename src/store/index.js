@@ -10,9 +10,12 @@ export default createStore({
   plugins,
   state:   {
 
-      message: null
-    
+      message: null,
+      sitebar: false
    
+  },
+  getters: {
+    sitebar: (state) => state.sitebar
   },
   mutations: {
     setMessage(state, message) {
@@ -21,6 +24,12 @@ export default createStore({
     },
     clearMessage(state){
       state.message = null
+    },
+    sitebarClose(state) {
+      state.sitebar = false
+    },
+    sitebarOpen(state) {
+      state.sitebar = true
     }
   },
   actions: {
@@ -31,6 +40,12 @@ export default createStore({
       setTimeout(() => {
         commit('clearMessage')
       }, 5000)
+    },
+    sitebarClose({commit}){
+      commit('sitebarClose')
+    },
+    sitebarOpen({commit}){
+      commit('sitebarOpen')
     }
   },
   modules: {
